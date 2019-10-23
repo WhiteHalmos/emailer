@@ -50,7 +50,7 @@ Copy the OAuth URL, and paste it into the browser, login as the user that will b
 
 On the server type `crontab -e`.  This will probably open up your cron in VIM, so here's some specific instructions including saving and exiting vim. :tada:
 
-In the following command, `55 18 * * *` means at minute 55 of the hour 18, or 2:55pm every day.  So change those numbers as you see fit.
+In the following command, `55 18 * * *` means at minute 55 of the hour 18, or 6:55pm every day.  So change those numbers as you see fit.
 
 * Press the down arrow until you get to the bottom.  Then press 'o' to start a new line.
 * Type: `PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`
@@ -59,7 +59,7 @@ In the following command, `55 18 * * *` means at minute 55 of the hour 18, or 2:
 * Then press ESC
 * Now type ZZ
 
-Note: The time 2:55pm is based on whatever the system's timezone is.  You can double check this by running `date` and it will say something like "Wed Sep 26 22:53:45 PDT 2018" where "PDT" means the server is set to Pacific Daylight Time timezone.
+Note: The time 6:55pm is based on whatever the system's timezone is.  You can double check this by running `date` and it will say something like "Wed Sep 26 22:53:45 PDT 2018" where "PDT" means the server is set to Pacific Daylight Time timezone.
 
 Any errors will be saved in the `~/emailer/emailer.log` file.  And you can look at the time of the file or `sudo grep cron /var/log/syslog` to see when the command last ran.
 
