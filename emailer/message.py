@@ -1,5 +1,6 @@
 import dataclasses
-import email.message
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 from .recipient import Recipient
 
@@ -10,11 +11,12 @@ class Message():
   sender: Recipient = None
   recipient: Recipient = None
   replyto: Recipient = None
+  plain_body: str = ''
   html_body: str = ''
 
   @property
   def email_message(self):
-    message = email.message.EmailMessage()
+    message = MIMEMultipart('alternative')
     message['Subject'] = self.subject
     if self.sender:
       message['From'] = self.sender.email
@@ -22,8 +24,19 @@ class Message():
       message['To'] = self.recipient.email
     if self.replyto:
       message['Reply-To'] = self.replyto.email
-    # CTE: https://en.wikipedia.org/wiki/MIME#Content-Transfer-Encoding
-    message.set_content(self.html_body, subtype='html', cte='quoted-printable')
+
+    # setting boundary so that it's deterministic for tests
+    message.set_boundary('--=== multiple formats ===--')
+
+    # the plain version is for non-html readers
+    plain = MIMEText(self.plain_body, 'plain')
+    plain.set_boundary('--=== plain message ===---')
+    message.attach(plain)
+
+    # html is the formatted version
+    html = MIMEText(self.html_body, 'html', 'utf-8')
+    html.set_boundary('--=== html formatted message ===--')
+    message.attach(html)
     return message
 
   def __bytes__(self):
