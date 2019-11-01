@@ -102,7 +102,7 @@ def markdown_emails_for_date(sheet, send_date, group, extra_values):
   for email in emails:
     values = composer.replace_values({PREFIX: prefix, **email, **extra_values})
     body = composer.substitute_for_key(BODY, values)
-    subject = prefix + composer.substitute_for_key(SUBJECT, values)
+    subject = composer.substitute_for_key(SUBJECT, values)
     logging.info(subject)
     logging.info(body)
     yield (subject, body, values)
