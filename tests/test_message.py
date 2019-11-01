@@ -28,6 +28,7 @@ def test_message_body_is_email_message_content():
   html = '<h1>Hi</h1>\n'
   message = Message(html_body=html, plain_body=plain)
   payloads = [m.get_payload() for m in message.email_message.get_payload()]
+  # `plain` is not base64 encoded, because 'Hi\n' doesn't include unicode characters.
   expected = [plain, b64encode(html.encode('utf-8')).decode('utf-8') + '\n']
   assert payloads == expected
 
