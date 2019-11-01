@@ -12,4 +12,5 @@ def create_message_for_recipient(recipient, subject, body, values):
                  sender=sender,
                  recipient=recipient,
                  replyto=replyto,
-                 html_body=html_body)
+                 html_body=html_body,
+                 plain_body=body)
