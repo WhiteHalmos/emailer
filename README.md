@@ -14,41 +14,8 @@ Data Format
     - Groups they are members of (e.g. Active, Dryrun)
     - Any number of highlights (this can be a name in the `Emails` sheet)
 
-Usage
+Examples
 -----
-    usage: email [-h] [-c CONFIG_DIR] [-k [KEY_NAMES [KEY_NAMES ...]]]
-                 [--all-keys] [-d DATE] [-v] [-V] [--sample-config] [--skip-send]
-                 [--save-sheet-to SAVE_SHEET_TO] [--stdin] [--stdout-markdown]
-                 [--stdout-email] [--active | --dryrun | --test]
-    
-    optional arguments:
-      -h, --help            show this help message and exit
-      -c CONFIG_DIR, --config-dir CONFIG_DIR
-                            Directory containing config file. Default is current
-                            working directory.
-      -k [KEY_NAMES [KEY_NAMES ...]], --key-names [KEY_NAMES [KEY_NAMES ...]]
-                            Key name(s) matching key(s) in the config.
-      --all-keys            Run for all available keys in config.
-      -d DATE, --date DATE  Date for which to send emails (YYYY-MM-DD). The
-                            default is today.
-      -v, --verbose         Display more logging output
-      -V, --version         Print the current emailer module version and exit.
-      --sample-config       Print a sample config. Save as emailer.json or
-                            .emailer.json and exit.
-      --skip-send           Avoid actually sending emails, useful for testing.
-      --save-sheet-to SAVE_SHEET_TO
-                            Save the sheet into the following JSON file.
-      --stdin               Use STDIN to get the sheet data, instead of directly
-                            from Google Sheets.
-      --stdout-markdown     Print a JSON array of unhighlighted email,still in
-                            markdown.
-      --stdout-email        Print a JSON array all highlighted email messages.
-      --active              Send emails to all active recipients.
-      --dryrun              Send emails one day early to dryrun recipients.
-      --test                Send emails only to test recipients.
-      
-### Examples
-
 Send a message for today's date to all Active recipients on the list `mykey`:
 ```bash
 python -m emailer -k mykey --active
