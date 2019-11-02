@@ -13,6 +13,7 @@ yapf:
 
 lint:
 	pipenv run yapf -rd .
+	pipenv run pytype
 	pipenv run pylint emailer tests
 
 cover:
