@@ -155,14 +155,14 @@ class OutputMock:
     self.markdown_called = True
     assert len(markdowns) == 1, "at least one message should be markdown"
     subject, body, _ = markdowns[0]
-    assert subject == '[TEST] test subject'
+    assert subject == 'test subject'
     assert body == 'test body\nhi'
 
   def stub_message_output(self, messages):
     self.message_called = True
     assert len(messages) == 1, "at least one message should be sent to output"
     message = messages[0]
-    assert message.subject == '[TEST] test subject'
+    assert message.subject == 'test subject'
     assert message.recipient.email == 'test@example.com'
 
 
@@ -216,7 +216,7 @@ def test_get_emails_parses_and_composes():
   markdowns = list(markdowns)
   assert len(markdowns) == 1, "one markdown should be generated"
   subject, body, values = markdowns[0]
-  assert subject == '[TEST] test subject'
+  assert subject == 'test subject'
   assert body == 'test body\nhi'
   assert values.get('email_date') == '2019-10-17'
 
