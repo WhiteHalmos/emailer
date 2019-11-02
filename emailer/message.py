@@ -1,6 +1,7 @@
 import dataclasses
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from typing import Optional
 
 from .recipient import Recipient
 
@@ -8,9 +9,9 @@ from .recipient import Recipient
 @dataclasses.dataclass(frozen=True)
 class Message():
   subject: str = ''
-  sender: Recipient = None
-  recipient: Recipient = None
-  replyto: Recipient = None
+  sender: Optional[Recipient] = None
+  recipient: Optional[Recipient] = None
+  replyto: Optional[Recipient] = None
   plain_body: str = ''
   html_body: str = ''
 

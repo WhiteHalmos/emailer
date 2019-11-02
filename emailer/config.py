@@ -1,6 +1,7 @@
 import dataclasses
 import json
 import os.path
+from typing import Optional
 
 from .recipient import Recipient
 from .auth import create_or_deserialize_creds
@@ -14,11 +15,11 @@ class InvalidFileError(Exception):
 
 @dataclasses.dataclass(frozen=True)
 class Config():
-  client_secret: dict = None
-  serialized_creds: dict = None
-  keys: dict = None
-  extra_emails: dict = None
-  extra_values: dict = None
+  client_secret: Optional[dict] = None
+  serialized_creds: Optional[dict] = None
+  keys: Optional[dict] = None
+  extra_emails: Optional[dict] = None
+  extra_values: Optional[dict] = None
 
   @property
   def creds(self):

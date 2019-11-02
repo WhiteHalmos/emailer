@@ -1,6 +1,7 @@
 /prod
 /.coverage
 /.pytest_cache
+/.pytype
 /.tox
 /emailer.egg-info
 /**/__pycache__
