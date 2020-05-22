@@ -1,8 +1,0 @@
-[run]
-source=
-  emailer
-  tests
-
-[report]
-show_missing=true
-skip_covered=true
