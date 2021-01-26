@@ -1,6 +1,6 @@
 Emailer
 =============
-[![Build Status](https://travis-ci.org/WhiteHalmos/emailer.svg?branch=master)](https://travis-ci.org/WhiteHalmos/emailer)
+[![Build Status](https://travis-ci.org/wnwen/emailer.svg?branch=master)](https://travis-ci.org/wnwen/emailer)
 
 Data Format
 -----------------------
